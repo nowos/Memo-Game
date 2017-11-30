@@ -72,24 +72,31 @@ function shuffle(array) {
 
 var buttons = function () {
 
-//przycisk start
+//
+
    $('.btStart').on('click', function () {
+      
+      window.location.hash = "#view";
 
       imagesBox1 = shuffle(imagesBox1);
       //wyzeruj rundy
       round = 0;
 
    });
-//przycisk start
-   $('.btStart2').on('click', function () {
 
+   $('.btStart2').on('click', function () {
+      
+       window.location.hash = "#view";
+       
       imagesBox2 = shuffle(imagesBox2);
       //wyzeruj rundy
       round = 0;
       //ustaw liczbę kart
    });
-//przycisk start
+
    $('.btStart3').on('click', function () {
+      
+       window.location.hash = "#view";
 
       imagesBox3 = shuffle(imagesBox3);
       //wyzeruj rundy
@@ -108,6 +115,7 @@ var removeImages = function () {
       $('.d' + i)[0].classList.remove("additional" + i);
    };
 };
+
 var clickCounter = function () {
    if (click >= 2) {
       removeImages();
@@ -138,8 +146,7 @@ var setLevel = function () {
          cards = 16;
          imagesBox = imagesBox3;
          break;
-   }
-   ;
+   };
 };
 
 //show image
