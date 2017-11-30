@@ -111,8 +111,10 @@ var removeImages = function () {
 
    for (i = 1; i <= cards ; i++) {
       //usuń content, a potem samą klasę additional ze wszystkich div-ów, w których jest 
+      
       $('.additional' + i).css({'content': ''});
-      $('.d' + i)[0].classList.remove("additional" + i);
+      console.log($('.d'+ i));
+      $('.d'+ i)[0].classList.remove("additional" + i);
    };
 };
 
@@ -151,9 +153,7 @@ var setLevel = function () {
 
 //show image
 var clickFunction = function () {
-   console.log(cards);
-   console.log(imagesBox);
-   console.log(level);
+ 
 //pętla na divach
 //ustawienia różnych leveli
    for (i = 1; i <= cards ; i++) {
@@ -205,8 +205,7 @@ var clickFunction = function () {
                      for (i = 1; i <= cards ; i++) {
                         if ($('.d' + i).hasClass('additional' + i)) {
                            $('.d' + i).addClass('matched');
-                        }
-                        ;
+                        } ;
                      }
 //jeśli są niedopasowane
                   } else {
