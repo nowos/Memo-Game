@@ -1,0 +1,229 @@
+#navbarNavAltMarkup {
+}
+
+.jumbotron.jumbotron-fluid {
+}
+
+.container {
+}
+
+.display-3 {
+}
+
+.lead {
+}
+
+.navbar.navbar-expand-lg.navbar-light.bg-light {
+}
+
+.navbar-brand {
+}
+
+.navbar-toggler {
+}
+
+.navbar-toggler-icon {
+}
+
+.navbar-nav {
+}
+.collapse{
+
+}
+.navbar-collapse{
+
+}
+.nav-item.nav-link.active {
+}
+
+.sr-only {
+}
+
+.nav-item.nav-link {
+}
+
+.nav-item.nav-link.disabled {
+}
+/*poza schematem*/
+
+.jumbotron-fluid2{
+   max-height: 150px;
+}
+.container2{
+
+}
+
+.containerFluid1{
+   max-height: 700px;
+   margin:0 auto;
+   max-width: 800px;
+}
+
+/*level1*/
+
+.imagesContainer1{
+   max-width: 700px;
+   margin: 0 auto;
+   display: flex; 
+   height: auto;
+}
+.emptyImg{
+   width: 200px;
+   height: 200px;
+   background-color:#ccccff;
+   border: 1px black; 
+   margin: 10px auto;
+}
+.l1Img1{
+
+}
+
+/*level2*/
+
+.containerFluid2{
+   margin:0 auto;
+   max-width: 900px;
+}
+
+.imagesContainer2{
+   max-width: 900px;
+   margin: 0 auto;
+   display: flex; 
+   height: auto;
+}
+
+/*level3*/
+
+.containerFluid3{
+   margin:0 auto;
+   max-width: 950px;
+}
+
+
+.imagesContainer3{
+   max-width: 950px;
+   margin: 0 auto;
+   display: flex; 
+   height: auto;
+}
+.emptyImg3{
+   width: 170px;
+   height: 170px;
+   background-color:#ccccff;
+   border: 1px black; 
+   margin: 10px auto;;
+}
+
+/*img kolejnosc uniwersalna*/
+
+.img1{
+   width: 200px;
+   height: 200px; 
+   display: none;
+}
+
+.topContainer{
+   margin: 50px auto !important;
+   max-width: 600px;
+   margin: 0 auto;
+}
+.startContainer{
+   width: 300px;
+   height: 50px;
+}
+
+.btStart{
+   width: 100px;
+   height: 40px;
+   font-size: 22px;
+   margin: 30px auto;
+   margin-left: 250px;
+}
+   
+.btStart2{
+   
+}
+      
+.btStart3{
+
+}
+.round{
+   height: 35px;
+   width: 120px; 
+   border: 1px solid blue;
+   border-radius: 50%;
+   padding: 0px 10px;
+   font-size: 20px;
+   text-align: center;
+}
+.d1.d2.d3.d4.d5.d6.d7.d8.d9.d10.d11.d12.d13.d14.d15.d16.d17.d18.d19.d20{
+
+}
+.matched{
+   content: url("images/CTMEM.jpg")!important;
+}
+
+.view{
+
+}
+
+#inlineFormInputName {
+}
+
+#inlineFormInputGroupUsername {
+}
+
+.form-row.align-items-center {
+}
+
+.col-sm-3 {
+}
+
+.sr-only {
+}
+
+.input-group.mb-2.mb-sm-0 {
+}
+
+.input-group-addon {
+}
+
+.col-auto {
+}
+
+.btn.btn-primary {
+}
+.form-control{
+
+}
+.form-check{
+
+} 
+.mb-2{
+
+.mb-sm-0{
+ }
+}
+.username{
+   margin: 0 auto;
+   width: 950px ;
+   margin-left: 25px;
+}
+.ranking{
+   width: 550px;
+   margin: 30px auto;
+}
+
+/*ranking*/
+
+.table {
+}
+
+footer{
+   margin: 0 auto;
+   width: 100%;
+   font-size: 18px;
+   font-family:serif;
+   text-align: center;
+   border-top: 1px solid #ccccff;
+}
