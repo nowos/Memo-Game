@@ -58,7 +58,7 @@ var imagesBox3 = [
 
 var setRanking = function(){
    
-for (i=1; i<=15; i++){
+for (i=4; i<=15; i++){
    //jeśli ilość rund mniejsza od któregoś z obecnych
    var sc = $('.score'+i).html();
    
