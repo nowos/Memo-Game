@@ -1,7 +1,4 @@
-
-body{
-   margin: 10px 5px;
-}   
+  
 
 #navbarNavAltMarkup {
 }
@@ -133,6 +130,10 @@ body{
    max-width: 600px;
    margin: 0 auto;
 }
+.topContainer2{
+   max-width: 700px;
+   margin: 50px auto;
+}
 .startContainer{
    width: 300px;
    height: 50px;
@@ -143,7 +144,7 @@ body{
    height: 35px;
    font-size: 20px;
    margin: 30px auto;
-   margin-left: 715px;
+   margin-left: 250px;
 }
    
 .btStart2{
@@ -184,7 +185,7 @@ body{
 #inlineFormInputName {
 }
 
-#inlineFormInputGroupUsername {
+#inlineFormInputLastName {
 }
 
 .form-row.align-items-center {
@@ -232,7 +233,9 @@ body{
 
 .table {
 }
-
+.footer{
+   
+}
 footer{
    margin: 0 auto;
    width: 100%;
@@ -243,10 +246,16 @@ footer{
 }
 .lvl{
  visibility: hidden;
+ font-size: 1px;
+ width: 1px;
+ height: 1px;
+ 
 }
 .jumbotron2{
    max-height: 800px;
 }
+
+/*responsywność*/
 
 @media screen and (min-width: 700px) and (max-width: 900px) { 
 
@@ -273,7 +282,20 @@ footer{
 .btStart, .btStart2, .btStart3{
    margin-left: 0px;
 }
+.username{
+   margin-right: 25px;
 }
+}
+@media screen and (min-width: 1px) and (max-width: 340px){
+   .emptyImg{
+   width: 65px !important;
+   height: 65px !important;
+}
+.container > h1{
+   font-size: 45px !important;
+}
+ 
+} 
 
 @media screen and (min-width: 1px) and (max-width: 480px) { 
 
@@ -287,7 +309,28 @@ footer{
 .btStart, .btStart2, .btStart3{
    margin-left: 0px;
 }
+.username{
+   margin-right: 25px;
 }
+.jumbotron{
+   max-height: 250px;
+}
+.topContainer{
+   margin-top: 0px !important;
+   max-height: 200px;
+}
+.topContainer2{
+   margin-top: 50px;
+   max-height: 800px;
+}
+body{
+   margin: 10px 5px;
+}
+.container > h1{
+   font-size: 45px !important;
+}
+}
+
 
 @media screen and (min-width: 500px) and (max-width: 700px) { 
 
@@ -301,4 +344,17 @@ footer{
 .btStart, .btStart2, .btStart3{
    margin-left: 0px;
 }
+.username{
+   margin-right: 25px;
 }
+.jumbotron{
+   max-height: 200px;
+}
+body{
+   margin: 10px 5px;
+}
+.container > h1{
+   font-size: 50px !important;
+}
+}
+

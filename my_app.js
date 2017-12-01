@@ -113,7 +113,6 @@ var removeImages = function () {
       //usuń content, a potem samą klasę additional ze wszystkich div-ów, w których jest 
       
       $('.additional' + i).css({'content': ''});
-      console.log($('.d'+ i));
       $('.d'+ i)[0].classList.remove("additional" + i);
    };
 };
@@ -130,6 +129,7 @@ var roundFunction = function () {
 var winFunction = function () {
    alert('You won!! Congratulation!!');
    matched = 0;
+   window.location.hash = "#view2";
 };
 
 var setLevel = function () {
@@ -150,6 +150,13 @@ var setLevel = function () {
          break;
    };
 };
+
+var userName = function() {
+   
+  Name = $('#it_1').val(); 
+  
+};
+
 
 //show image
 var clickFunction = function () {
@@ -189,10 +196,12 @@ var clickFunction = function () {
 
 //jeśli oba pełne to porównanie wystąpi
                if (one !== 'empty' & two !== 'empty') {
+                  
                   //aktualizacja rundy
                   round = round + 1;
                   roundFunction();
                   if (one === two) {
+                     alert("match!");
                      one = 'empty';
                      two = 'empty';
                      matched = matched + 1;
@@ -211,6 +220,7 @@ var clickFunction = function () {
                   } else {
                      one = 'empty';
                      two = 'empty';
+                     
                   }
                }
             }
@@ -230,3 +240,5 @@ var main = function () {
 $(document).ready(main);
 
 
+//diagnoza - nie zamienia w CT obrazki po zmaczowaniu
+//nie usuwa contentu obrazków w lev 2 i 3
