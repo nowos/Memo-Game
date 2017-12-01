@@ -190,13 +190,13 @@ $('.submit').on('click', function(){
 
 for (i=1; i<=10; i++){
    //jeśli ilość rund mniejsza od któregoś z obecnych
-   var sc = $('.score'+1).html();
+   var sc = $('.score'+i).html();
    
-   if(round < $('.score'+1).html() ){
+   if(round < $('.score'+i).html() ){
     
  //to dodaj w tym miejscu wartość round i username i przerwij pętle
-      $('.score'+1).html(round);
-      $('.user'+1).html(username);
+      $('.score'+i).html(round);
+      $('.user'+i).html(username);
       localStorage.setItem(round,username);
      break; 
    }
