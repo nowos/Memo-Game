@@ -7,6 +7,9 @@ var cards;
 var l = 0;
 var level;
 var imagesBox = new Array;
+var name;
+var lastName;
+var username;
 
 var imagesBox1 = [
    "images/WilkMEM.jpg",
@@ -52,6 +55,26 @@ var imagesBox3 = [
 
 ];
 //shuffle function
+
+var setRanking = function(){
+   
+for (i=1; i<=15; i++){
+   //jeśli ilość rund mniejsza od któregoś z obecnych
+   var sc = $('.score'+i).html();
+   
+   //jeśli wynik w tdScore < i zaaplikuj nowe username o wyniku 'i' jeśli znajdziej w localSorage
+   if( i < sc ){
+    
+   var item = localStorage.getItem(i); 
+    
+ //to dodaj w tym miejscu wartość round i username i przerwij pętle
+      $('.score'+i).html(i);
+      $('.user'+i).html(item);
+
+   }
+}  
+   
+};
 
 function shuffle(array) {
    var currentIndex = array.length, temporaryValue, randomIndex;
@@ -107,6 +130,7 @@ var buttons = function () {
 };
 
 
+
 var removeImages = function () {
 
    for (i = 1; i <= cards ; i++) {
@@ -151,10 +175,34 @@ var setLevel = function () {
    };
 };
 
+
+
 var userName = function() {
-   
-  Name = $('#it_1').val(); 
+
+$('.submit').on('click', function(){
+  name = $('#inlineFormName').val(); 
+  lastName = $('#inlineFormLastName').val();
   
+  username = name + ' ' + lastName;
+  
+  window.location.hash = "#view2";
+//wrzuc do LS daną round pod wywołaniem username
+
+for (i=1; i<=10; i++){
+   //jeśli ilość rund mniejsza od któregoś z obecnych
+   var sc = $('.score'+1).html();
+   
+   if(round < $('.score'+1).html() ){
+    
+ //to dodaj w tym miejscu wartość round i username i przerwij pętle
+      $('.score'+1).html(round);
+      $('.user'+1).html(username);
+      localStorage.setItem(round,username);
+     break; 
+   }
+}
+});
+
 };
 
 
@@ -201,7 +249,6 @@ var clickFunction = function () {
                   round = round + 1;
                   roundFunction();
                   if (one === two) {
-                     alert("match!");
                      one = 'empty';
                      two = 'empty';
                      matched = matched + 1;
@@ -235,6 +282,8 @@ var main = function () {
    setLevel();
    buttons();
    clickFunction();
+   userName();
+   setRanking();
 };
 
 $(document).ready(main);
