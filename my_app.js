@@ -10,6 +10,8 @@ var imagesBox = new Array;
 var name;
 var lastName;
 var username;
+var rank;
+var minPair;
 
 var imagesBox1 = [
    "images/WilkMEM.jpg",
@@ -54,26 +56,59 @@ var imagesBox3 = [
    "images/znak3.png"
 
 ];
+
+var removedItems = new Array;
+
 //shuffle function
 
-var setRanking = function(){
-   
-for (i=4; i<=15; i++){
-   //jeśli ilość rund mniejsza od któregoś z obecnych
-   var sc = $('.score'+i).html();
-   
-   //jeśli wynik w tdScore < i zaaplikuj nowe username o wyniku 'i' jeśli znajdziej w localSorage
-   if( i < sc ){
-    
-   var item = localStorage.getItem(i); 
-    
- //to dodaj w tym miejscu wartość round i username i przerwij pętle
-      $('.score'+i).html(i);
-      $('.user'+i).html(item);
+var setRemovedItems = function () {
+
+   for (z = 0; z < 30; z++) {
+      var itemR = removedItems[z];
+      console.log('item ' + itemR);
+      if (itemR !== null && itemR !== 'undefined') {
+         localStorage.setItem(lvl + " " + z, removedItems[z]);
+      }
+   }
+
+};
+
+var setRanking = function () {
+
+   Loop1:
+           for (i = 1; i <= 10; i++) {
+
+      Loop2:
+              for (z = minPair; z < 25; z++) {
+         //jeśli ilość rund mniejsza od któregoś z obecnych
+
+
+         var sc = $(rank + 'Score' + i).html();
+
+         //jeśli wynik w tdScore < i zaaplikuj nowe username o wyniku 'i' jeśli znajdziej w localSorage
+         if (z < sc) {
+
+            var item = localStorage.getItem(lvl + " " + z);
+            console.log('item ' + item);
+
+
+            if (item !== null && item !== 'undefined') {
+               //to dodaj w tym miejscu wartość round i username i przerwij pętle
+               $(rank + 'Score' + i).html(z);
+               $(rank + 'User' + i).html(item);
+               localStorage.removeItem(lvl + " " + z);
+               removedItems[z] = item;
+               console.log('item: ' + item);
+               console.log('removed item: ' + lvl + " " + z);
+               console.log('array ' + removedItems[z]);
+               continue Loop1;
+            }
+
+         }
+      }
 
    }
-}  
-   
+   setRemovedItems();
 };
 
 function shuffle(array) {
@@ -91,54 +126,59 @@ function shuffle(array) {
    }
 
    return array;
-};
+}
+;
 
 var buttons = function () {
 
 //
 
    $('.btStart').on('click', function () {
-      
+
       window.location.hash = "#view";
 
       imagesBox1 = shuffle(imagesBox1);
       //wyzeruj rundy
       round = 0;
 
+      setRanking();
+
    });
 
    $('.btStart2').on('click', function () {
-      
-       window.location.hash = "#view";
-       
+
+      window.location.hash = "#view";
+
       imagesBox2 = shuffle(imagesBox2);
       //wyzeruj rundy
       round = 0;
-      //ustaw liczbę kart
+
+
+      setRanking();
    });
 
    $('.btStart3').on('click', function () {
-      
-       window.location.hash = "#view";
+
+      window.location.hash = "#view";
 
       imagesBox3 = shuffle(imagesBox3);
       //wyzeruj rundy
       round = 0;
-      //ustaw liczbę kart
+
+      setRanking();
 
    });
 };
 
-
-
 var removeImages = function () {
 
-   for (i = 1; i <= cards ; i++) {
+   for (i = 1; i <= cards; i++) {
       //usuń content, a potem samą klasę additional ze wszystkich div-ów, w których jest 
-      
+
       $('.additional' + i).css({'content': ''});
-      $('.d'+ i)[0].classList.remove("additional" + i);
-   };
+      $('.d' + i)[0].classList.remove("additional" + i);
+   }
+   ;
 };
 
 var clickCounter = function () {
@@ -158,76 +198,109 @@ var winFunction = function () {
 
 var setLevel = function () {
    level = $('.lvl').text();
-   console.log(level);
+
    switch (level) {
       case '1':
          cards = 8;
          imagesBox = imagesBox1;
+         //ustal level do rankingu
+         rank = '.l1';
+         //minimalna ilość par
+         minPair = 4;
+         //lvl
+         lvl = 1;
          break;
       case '2':
          cards = 12;
          imagesBox = imagesBox2;
+         //ustaw liczbę kart
+         rank = '.l2';
+         //minimalna ilość par
+         minPair = 6;
+         lvl = 2;
          break;
       case '3':
          cards = 16;
          imagesBox = imagesBox3;
+         //ustaw liczbę kart
+         rank = '.l3';
+         //minimalna ilość par
+         minPair = 8;
+         lvl = 3;
          break;
-   };
+   }
+   ;
 };
 
 
 
-var userName = function() {
+var userName = function () {
 
-$('.submit').on('click', function(){
-  name = $('#inlineFormName').val(); 
-  lastName = $('#inlineFormLastName').val();
-  
-  username = name + ' ' + lastName;
-  
-  window.location.hash = "#view2";
+
+
+   $('.submit').on('click', function () {
+      name = $('#inlineFormName').val();
+      lastName = $('#inlineFormLastName').val();
+
+      username = name + ' ' + lastName;
+
+      window.location.hash = "#view2";
 //wrzuc do LS daną round pod wywołaniem username
+Loop3:
+      for (i = 1; i <= 10; i++) {
+         //jeśli ilość rund mniejsza od któregoś z obecnych
+         var sc = $(rank + 'Score' + i).html();
 
-for (i=1; i<=10; i++){
-   //jeśli ilość rund mniejsza od któregoś z obecnych
-   var sc = $('.score'+i).html();
-   
-   if(round < $('.score'+i).html() ){
-    
- //to dodaj w tym miejscu wartość round i username i przerwij pętle
-      $('.score'+i).html(round);
-      $('.user'+i).html(username);
-      localStorage.setItem(round,username);
-     break; 
-   }
-}
-});
+         if (round < $(rank + 'Score' + i).html()) {
+
+            //to dodaj w tym miejscu wartość round i username i przerwij pętle
+            $(rank + 'Score' + i).html(round);
+            $(rank + 'User' + i).html(username);
+            localStorage.setItem(lvl + " " + round, username);
+
+            break Loop3;
+         }
+      }
+   });
 
 };
 
 
 //show image
 var clickFunction = function () {
- 
+
 //pętla na divach
 //ustawienia różnych leveli
-   for (i = 1; i <= cards ; i++) {
+   for (i = 1; i <= cards; i++) {
       $('.d' + i).on('click', onClickFunction = function () {
 
-
-  //wyzeruj obrazki jeśli było ponad 2 cliknięcia
+         //wyzeruj obrazki jeśli było ponad 2 cliknięcia
          clickCounter();
          click = click + 1;
 //szukanie obrazka do kliknietego pola
-         for (var i = 0; i <= cards ; i++) {
+         for (var i = 0; i <= cards; i++) {
 
 //jeśli znaleziony będzie obrazek do pola, to:
             if ($(this)[0].className === "emptyImg d" + (i + 1)) {
 
 //znalezienie który div - numer pod var char
                var imgChosen = $(this)[0].className;
-               //znalezienie numeru diva po ostatniej literze
-               char = imgChosen.charAt(imgChosen.length - 1);
+
+               //znalezienie numeru diva po ostatnim znaku lub znakach (>10 obiekt)
+               if (i <= 8) {
+                  char = imgChosen.charAt(imgChosen.length - 1);
+               }
+               //jeśli numer karty >= 10
+               else if (i === 9) {
+                  char = 10;
+               } else if (i > 9) {
+                  var firstChar = imgChosen.charAt(imgChosen.length - 2);
+
+                  var secondChar = imgChosen.charAt(imgChosen.length - 1);
+
+                  char = firstChar + secondChar;
+               }
+
 //dodanie klasy 
                $(this).addClass('additional' + char);
 //dodanie do dodanej klasy obrazka odpowiadającego kolejności div 
@@ -242,9 +315,10 @@ var clickFunction = function () {
                }
                //MATCHING
 
+
 //jeśli oba pełne to porównanie wystąpi
                if (one !== 'empty' & two !== 'empty') {
-                  
+
                   //aktualizacja rundy
                   round = round + 1;
                   roundFunction();
@@ -258,16 +332,17 @@ var clickFunction = function () {
                      }
 
 //jeśli będzie dopasowanie, to zainstaluj CT obrazek
-                     for (i = 1; i <= cards ; i++) {
+                     for (i = 1; i <= cards; i++) {
                         if ($('.d' + i).hasClass('additional' + i)) {
                            $('.d' + i).addClass('matched');
-                        } ;
+                        }
+                        ;
                      }
 //jeśli są niedopasowane
                   } else {
                      one = 'empty';
                      two = 'empty';
-                     
+
                   }
                }
             }
@@ -283,7 +358,6 @@ var main = function () {
    buttons();
    clickFunction();
    userName();
-   setRanking();
 };
 
 $(document).ready(main);

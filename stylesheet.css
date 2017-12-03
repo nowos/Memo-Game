@@ -205,6 +205,9 @@
 
 .col-auto {
 }
+.sr-only{
+   
+}
 
 .btn.btn-primary {
 }
@@ -254,14 +257,33 @@ footer{
 .jumbotron2{
    max-height: 800px;
 }
+.submitContainer{
+   margin-top: 20px;
+}
 .submit{
    
 }
 
-.user1, .user2 , .user3, .user4, .user5, .user6, .user7, .user8, .user9, .user10{
+.l1User1, .l1User2 , .l1User3, .l1User4, .l1User5, .l1User6, .l1User7, .l1User8, .l1User9, .l1User10{
    
 }
-.score1, .score2, .score3, .score4, .score5, .score6, .score7, .score8, .score9, .score10{
+.l1Score1, .l1Score2, .l1Score3, .l1Score4, .l1Score5, .l1Score6, .l1Score7, .l1Score8, .l1Score9, .l1Score10{
+   
+}
+
+.l2User1, .l2User2 , .l2User3, .l2User4, .l2User5, .l2User6, .l2User7, .l2User8, .l2User9, .l2User10{
+   
+}
+
+.l2Score1, .l2Score2, .l2Score3, .l2Score4, .l2Score5, .l2Score6, .l2Score7, .l2Score8, .l2Score9, .l2Score10{
+   
+}
+
+.l3User1, .l3User2 , .l3User3, .l3User4, .l3User5, .l3User6, .l3User7, .l3User8, .l3User9, .l3User10{
+   
+}
+
+.l3Score1, .l3Score2, .l3Score3, .l3Score4, .l3Score5, .l3Score6, .l3Score7, .l3Score8, .l3Score9, .l3Score10{
    
 }
 
