@@ -141,8 +141,6 @@ var buttons = function () {
       //wyzeruj rundy
       round = 0;
 
-      setRanking();
-
    });
 
    $('.btStart2').on('click', function () {
@@ -153,8 +151,6 @@ var buttons = function () {
       //wyzeruj rundy
       round = 0;
 
-
-      setRanking();
    });
 
    $('.btStart3').on('click', function () {
@@ -164,8 +160,6 @@ var buttons = function () {
       imagesBox3 = shuffle(imagesBox3);
       //wyzeruj rundy
       round = 0;
-
-      setRanking();
 
    });
 };
@@ -261,7 +255,9 @@ Loop3:
             break Loop3;
          }
       }
+  setRanking();
    });
+
 
 };
 
