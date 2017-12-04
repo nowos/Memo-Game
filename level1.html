@@ -5,16 +5,13 @@
       <title>Memo</title>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
       <link type="text/css" rel="stylesheet" href="stylesheet.css">
-
       <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>  
    </head>
    <body>
-      <p class="lvl">1</p>
       <div class="jumbotron jumbotron-fluid">
          <div class="container">
             <h1 class="display-3">Memory Game</h1>
@@ -37,45 +34,40 @@
       </nav> 
 
       <!--Username & Start-->
-     <div class="topContainer"> 
-      <!--Start-->
-      <div class="startContainer">
-         <button class ="btStart">Start!!</button>  
+      <div class="topContainer"> 
+         <!--Start-->
+         <div class="startContainer">
+            <button class ="btStart">Start!!</button>  
+         </div>
       </div>
-     </div>
       <!--Cards-->
 
       <div class="containerFluid1">
+         <div id="view">1</div>
          <div class="round">Round 0</div>
 
          <div class="imagesContainer1">
-                     <div id="view"></div>
-
             <div class="emptyImg d1"></div> 
             <div class="emptyImg d2"></div> 
             <div class="emptyImg d3"></div>
          </div>
 
          <div class="imagesContainer1">
-
             <div class="emptyImg d4"></div>
             <div class="emptyImg d5"></div> 
-
          </div>
 
          <div class="imagesContainer1">
-
             <div class="emptyImg d6"></div> 
             <div class="emptyImg d7"></div> 
             <div class="emptyImg d8"></div> 
-
          </div>
 
       </div>
-      
-      <div class="topContainer2">
 
+      <div class="topContainer2">
          <div class="username">
+            <div id="view2"></div>
             <form>
                <div class="form-row align-items-center">
                   <div class="col-sm-3">
@@ -98,13 +90,14 @@
                </div>
             </form>
             <div class="submitContainer">
-            <button class="submit">Submit</button> 
+               <button class="submit">Submit</button> 
+               <button class="btback"><a href="#">Back to start</a></button>
             </div>
          </div> 
 
          <!--Ranking-->    
          <div class="ranking">
-            <div id="view2"></div>
+
             <table class="table">
                <thead>
                   <tr>
@@ -126,40 +119,40 @@
                   </tr>
                   <tr>
                      <th scope="row">3</th>
-                    <td class="l1User3"></td>
+                     <td class="l1User3"></td>
                      <td class="l1Score3">11</td>
                   </tr>
-                   <tr>
+                  <tr>
                      <th scope="row">4</th>
                      <td class="l1User4"></td>
                      <td class="l1Score4">11</td>
                   </tr>
-                   <tr>
+                  <tr>
                      <th scope="row">5</th>
                      <td class="l1User5"></td>
                      <td class="l1Score5">12</td>
                   </tr>
-                   <tr>
+                  <tr>
                      <th scope="row">6</th>
                      <td class="l1User6"></td>
                      <td class="l1Score6">13</td>
                   </tr>
-                   <tr>
+                  <tr>
                      <th scope="row">7</th>
                      <td class="l1User7"></td>
                      <td class="l1Score7">13</td>
                   </tr>
-                   <tr>
+                  <tr>
                      <th scope="row">8</th>
                      <td class="l1User8"></td>
                      <td class="l1Score8">14</td>
                   </tr>
-                   <tr>
+                  <tr>
                      <th scope="row">9</th>
                      <td class="l1User9"></td>
                      <td class="l1Score9">15</td>
                   </tr>
-                   <tr>
+                  <tr>
                      <th scope="row">10</th>
                      <td class="l1User10"></td>
                      <td class="l1Score10">16</td>
@@ -168,9 +161,9 @@
             </table>
          </div>
       </div>
-<div class="footer">
-      <footer>All rights reserved.</footer>
-</div>
+      <div class="footer">
+         <footer>All rights reserved.</footer>
+      </div>
       <script src="my_app.js"></script>
    </body>
 </html>

@@ -4,14 +4,13 @@ var click = 0;
 var round = 0;
 var matched = 0;
 var cards;
-var l = 0;
-var level;
-var imagesBox = new Array;
 var name;
 var lastName;
 var username;
+var imagesBox = new Array;
 var rank;
 var minPair;
+var lvl;
 
 var imagesBox1 = [
    "images/WilkMEM.jpg",
@@ -65,7 +64,6 @@ var setRemovedItems = function () {
 
    for (z = 0; z < 30; z++) {
       var itemR = removedItems[z];
-      console.log('item ' + itemR);
       if (itemR !== null && itemR !== 'undefined') {
          localStorage.setItem(lvl + " " + z, removedItems[z]);
       }
@@ -77,36 +75,23 @@ var setRanking = function () {
 
    Loop1:
            for (i = 1; i <= 10; i++) {
-
       Loop2:
               for (z = minPair; z < 25; z++) {
          //jeśli ilość rund mniejsza od któregoś z obecnych
-
-
          var sc = $(rank + 'Score' + i).html();
-
          //jeśli wynik w tdScore < i zaaplikuj nowe username o wyniku 'i' jeśli znajdziej w localSorage
          if (z < sc) {
-
             var item = localStorage.getItem(lvl + " " + z);
-            console.log('item ' + item);
-
-
             if (item !== null && item !== 'undefined') {
                //to dodaj w tym miejscu wartość round i username i przerwij pętle
                $(rank + 'Score' + i).html(z);
                $(rank + 'User' + i).html(item);
                localStorage.removeItem(lvl + " " + z);
                removedItems[z] = item;
-               console.log('item: ' + item);
-               console.log('removed item: ' + lvl + " " + z);
-               console.log('array ' + removedItems[z]);
                continue Loop1;
             }
-
          }
       }
-
    }
    setRemovedItems();
 };
@@ -126,14 +111,13 @@ function shuffle(array) {
    }
 
    return array;
-}
-;
+};
 
 var buttons = function () {
 
-//
-
    $('.btStart').on('click', function () {
+      
+      location.reload();
 
       window.location.hash = "#view";
 
@@ -144,6 +128,8 @@ var buttons = function () {
    });
 
    $('.btStart2').on('click', function () {
+      
+      location.reload();
 
       window.location.hash = "#view";
 
@@ -154,6 +140,8 @@ var buttons = function () {
    });
 
    $('.btStart3').on('click', function () {
+      
+      location.reload();
 
       window.location.hash = "#view";
 
@@ -168,11 +156,9 @@ var removeImages = function () {
 
    for (i = 1; i <= cards; i++) {
       //usuń content, a potem samą klasę additional ze wszystkich div-ów, w których jest 
-
       $('.additional' + i).css({'content': ''});
       $('.d' + i)[0].classList.remove("additional" + i);
-   }
-   ;
+   };
 };
 
 var clickCounter = function () {
@@ -191,8 +177,8 @@ var winFunction = function () {
 };
 
 var setLevel = function () {
-   level = $('.lvl').text();
-
+   level = $('#view').text();
+   
    switch (level) {
       case '1':
          cards = 8;
@@ -222,23 +208,17 @@ var setLevel = function () {
          minPair = 8;
          lvl = 3;
          break;
-   }
-   ;
+   };
 };
 
-
-
 var userName = function () {
-
-
 
    $('.submit').on('click', function () {
       name = $('#inlineFormName').val();
       lastName = $('#inlineFormLastName').val();
-
       username = name + ' ' + lastName;
-
       window.location.hash = "#view2";
+      
 //wrzuc do LS daną round pod wywołaniem username
 Loop3:
       for (i = 1; i <= 10; i++) {
@@ -257,10 +237,7 @@ Loop3:
       }
   setRanking();
    });
-
-
 };
-
 
 //show image
 var clickFunction = function () {
@@ -296,7 +273,6 @@ var clickFunction = function () {
 
                   char = firstChar + secondChar;
                }
-
 //dodanie klasy 
                $(this).addClass('additional' + char);
 //dodanie do dodanej klasy obrazka odpowiadającego kolejności div 
@@ -310,8 +286,6 @@ var clickFunction = function () {
                   two = imagesBox[i];
                }
                //MATCHING
-
-
 //jeśli oba pełne to porównanie wystąpi
                if (one !== 'empty' & two !== 'empty') {
 
@@ -331,8 +305,7 @@ var clickFunction = function () {
                      for (i = 1; i <= cards; i++) {
                         if ($('.d' + i).hasClass('additional' + i)) {
                            $('.d' + i).addClass('matched');
-                        }
-                        ;
+                        };
                      }
 //jeśli są niedopasowane
                   } else {
@@ -341,13 +314,10 @@ var clickFunction = function () {
 
                   }
                }
-            }
-            ;
-         }
-         ;
+            };
+         };
       }); //end of onClickFunction
-   }
-   ;
+   };
 };
 var main = function () {
    setLevel();
