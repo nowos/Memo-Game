@@ -11,6 +11,7 @@ var imagesBox = new Array;
 var rank;
 var minPair;
 var lvl;
+var level;
 
 var imagesBox1 = [
    "images/WilkMEM.jpg",
