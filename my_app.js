@@ -8,6 +8,7 @@ var name;
 var lastName;
 var username;
 var imagesBox = new Array;
+var removedItems = new Array;
 var rank;
 var minPair;
 var lvl;
@@ -56,11 +57,7 @@ var imagesBox3 = [
    "images/znak3.png"
 
 ];
-
-var removedItems = new Array;
-
-//shuffle function
-
+//funkcja przywracajaca usuniete obrazki z localStorage
 var setRemovedItems = function () {
 
    for (z = 0; z < 30; z++) {
@@ -71,20 +68,20 @@ var setRemovedItems = function () {
    }
 
 };
-
+//funkcja ustawiajaca ranking po podaniu nazwy uzytkownika
 var setRanking = function () {
 
    Loop1:
            for (i = 1; i <= 10; i++) {
       Loop2:
               for (z = minPair; z < 25; z++) {
-         //jeśli ilość rund mniejsza od któregoś z obecnych
+        
          var sc = $(rank + 'Score' + i).html();
-         //jeśli wynik w tdScore < i zaaplikuj nowe username o wyniku 'i' jeśli znajdziej w localSorage
+   
          if (z < sc) {
             var item = localStorage.getItem(lvl + " " + z);
             if (item !== null && item !== 'undefined') {
-               //to dodaj w tym miejscu wartość round i username i przerwij pętle
+ 
                $(rank + 'Score' + i).html(z);
                $(rank + 'User' + i).html(item);
                localStorage.removeItem(lvl + " " + z);
@@ -96,16 +93,13 @@ var setRanking = function () {
    }
    setRemovedItems();
 };
-
+//funkcja losujaca rozstawienie kart
 function shuffle(array) {
    var currentIndex = array.length, temporaryValue, randomIndex;
-   // While there remain elements to shuffle...
-   while (0 !== currentIndex) {
 
-      // Pick a remaining element...
+   while (0 !== currentIndex) {
       randomIndex = Math.floor(Math.random() * currentIndex);
-      currentIndex -= 1;
-      // And swap it with the current element.
+      currentIndex -= 1
       temporaryValue = array[currentIndex];
       array[currentIndex] = array[randomIndex];
       array[randomIndex] = temporaryValue;
@@ -113,7 +107,7 @@ function shuffle(array) {
 
    return array;
 };
-
+//funkcja przyciskow startowych
 var buttons = function () {
 
    $('.btStart').on('click', function () {
@@ -152,7 +146,7 @@ var buttons = function () {
 
    });
 };
-
+//funkcja usuwajaca obrazki po zakonczeniu rundy
 var removeImages = function () {
 
    for (i = 1; i <= cards; i++) {
@@ -161,22 +155,24 @@ var removeImages = function () {
       $('.d' + i)[0].classList.remove("additional" + i);
    };
 };
-
+//funkcja usuwajaca obrazki po zakonczeniu rundy
 var clickCounter = function () {
    if (click >= 2) {
       removeImages();
       click = 0;
    }
 };
+//funkcja ustawiajaca rundy
 var roundFunction = function () {
    $('.round').text("Round " + round);
 };
+
 var winFunction = function () {
-   alert('You won!! Congratulation!!');
+   alert('You won!! Congratulations!!');
    matched = 0;
    window.location.hash = "#view2";
 };
-
+//funkcja ustawiajaca wartosci dla roznych leveli
 var setLevel = function () {
    level = $('#view').text();
    
@@ -211,7 +207,7 @@ var setLevel = function () {
          break;
    };
 };
-
+//funkcja dodawania nazwy uzytkownika do rankingu
 var userName = function () {
 
    $('.submit').on('click', function () {
@@ -220,10 +216,9 @@ var userName = function () {
       username = name + ' ' + lastName;
       window.location.hash = "#view2";
       
-//wrzuc do LS daną round pod wywołaniem username
 Loop3:
       for (i = 1; i <= 10; i++) {
-         //jeśli ilość rund mniejsza od któregoś z obecnych
+
          var sc = $(rank + 'Score' + i).html();
 
          if (round < $(rank + 'Score' + i).html()) {
@@ -242,25 +237,19 @@ Loop3:
 
 //show image
 var clickFunction = function () {
-
-//pętla na divach
-//ustawienia różnych leveli
+   
+//set levels
    for (i = 1; i <= cards; i++) {
       $('.d' + i).on('click', onClickFunction = function () {
-
-         //wyzeruj obrazki jeśli było ponad 2 cliknięcia
+         
          clickCounter();
          click = click + 1;
-//szukanie obrazka do kliknietego pola
          for (var i = 0; i <= cards; i++) {
 
-//jeśli znaleziony będzie obrazek do pola, to:
             if ($(this)[0].className === "emptyImg d" + (i + 1)) {
 
-//znalezienie który div - numer pod var char
                var imgChosen = $(this)[0].className;
 
-               //znalezienie numeru diva po ostatnim znaku lub znakach (>10 obiekt)
                if (i <= 8) {
                   char = imgChosen.charAt(imgChosen.length - 1);
                }
@@ -276,13 +265,13 @@ var clickFunction = function () {
                }
 //dodanie klasy 
                $(this).addClass('additional' + char);
-//dodanie do dodanej klasy obrazka odpowiadającego kolejności div 
+//dodanie do dodanej klasy obrazka 
                $('.additional' + char).css({'content': 'url' + "('" + imagesBox[i] + "')"});
                //jeśli one puste to przypisz nazwę obrazka
                if (one === 'empty') {
                   one = imagesBox[i];
                }
-//jeśli one pełne to przypisz nazwę obrazka do two
+//jeśli one pełne to przypisz nazwę obrazka do zmiennej two
                else if (one !== 'empty') {
                   two = imagesBox[i];
                }
@@ -317,7 +306,7 @@ var clickFunction = function () {
                }
             };
          };
-      }); //end of onClickFunction
+      }); 
    };
 };
 var main = function () {
