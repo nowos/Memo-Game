@@ -111,8 +111,6 @@ var shuffle = function(array) {
 var buttons = function () {
 
    $('.btStart').on('click', function () {
-      
-      location.reload();
 
       window.location.hash = "#view";
 
@@ -124,8 +122,6 @@ var buttons = function () {
 
    $('.btStart2').on('click', function () {
       
-      location.reload();
-
       window.location.hash = "#view";
 
       imagesBox = shuffle(imagesBox);
@@ -135,9 +131,7 @@ var buttons = function () {
    });
 
    $('.btStart3').on('click', function () {
-      
-      location.reload();
-
+ 
       window.location.hash = "#view";
 
       imagesBox = shuffle(imagesBox);
