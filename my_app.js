@@ -94,7 +94,7 @@ var setRanking = function () {
    setRemovedItems();
 };
 //funkcja losujaca rozstawienie kart
-function shuffle(array) {
+var shuffle = function(array) {
    var currentIndex = array.length, temporaryValue, randomIndex;
 
    while (0 !== currentIndex) {
@@ -116,7 +116,7 @@ var buttons = function () {
 
       window.location.hash = "#view";
 
-      imagesBox1 = shuffle(imagesBox1);
+      imagesBox = shuffle(imagesBox);
       //wyzeruj rundy
       round = 0;
 
@@ -128,7 +128,7 @@ var buttons = function () {
 
       window.location.hash = "#view";
 
-      imagesBox2 = shuffle(imagesBox2);
+      imagesBox = shuffle(imagesBox);
       //wyzeruj rundy
       round = 0;
 
@@ -140,7 +140,7 @@ var buttons = function () {
 
       window.location.hash = "#view";
 
-      imagesBox3 = shuffle(imagesBox3);
+      imagesBox = shuffle(imagesBox);
       //wyzeruj rundy
       round = 0;
 
@@ -309,11 +309,20 @@ var clickFunction = function () {
       }); 
    };
 };
+//funkcja powrotu do startu po nacisnieciu przycisku
+var backToStart = function(){
+   $('.btback').on('click', function(){
+         location.reload();
+   });
+};
+
+
 var main = function () {
    setLevel();
    buttons();
    clickFunction();
    userName();
+   backToStart();
 };
 
 $(document).ready(main);
