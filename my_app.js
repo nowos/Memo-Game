@@ -328,7 +328,3 @@ var main = function () {
 };
 
 $(document).ready(main);
-
-
-//diagnoza - nie zamienia w CT obrazki po zmaczowaniu
-//nie usuwa contentu obrazków w lev 2 i 3
