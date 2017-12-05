@@ -238,7 +238,7 @@ Loop3:
 //show image
 var clickFunction = function () {
    
-//set levels
+// funkcja klikniecia kart
    for (i = 1; i <= cards; i++) {
       $('.d' + i).on('click', onClickFunction = function () {
          
