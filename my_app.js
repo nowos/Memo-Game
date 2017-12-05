@@ -166,7 +166,7 @@ var clickCounter = function () {
 var roundFunction = function () {
    $('.round').text("Round " + round);
 };
-
+//funkcja wygranej, wyswietlajaca sie po dopasowaniu wszystkich par
 var winFunction = function () {
    alert('You won!! Congratulations!!');
    matched = 0;
@@ -235,10 +235,10 @@ Loop3:
    });
 };
 
-//show image
+// funkcja klikniecia kart odwracajaca obrazki i obslugujaca ich parowanie 
 var clickFunction = function () {
    
-// funkcja klikniecia kart
+
    for (i = 1; i <= cards; i++) {
       $('.d' + i).on('click', onClickFunction = function () {
          
